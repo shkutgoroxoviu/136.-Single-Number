@@ -1,0 +1,37 @@
+169. Majority Element
+
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+Example 1:
+
+Input: nums = [3,2,3]
+Output: 3
+
+Example 2:
+
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+// Solution
+
+class Solution {
+    func majorityElement(_ nums: [Int]) -> Int {
+    var firstMajor = [Int]()
+    var secondMajor = [Int]()
+    
+    for i in nums.sorted() {
+        if nums.min() == i {
+            firstMajor.append(i)
+        } else {
+            secondMajor.append(i)
+        }
+    }
+    
+    if firstMajor.count > secondMajor.count {
+        return firstMajor[nums.count / 2]
+    } else {
+        return secondMajor[nums.count / 2]
+    }
+}
+}
