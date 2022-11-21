@@ -1,0 +1,21 @@
+CamelCase Method
+
+Write a simple camelCase function for strings. All words must have their first letter capitalized and all spaces removed.
+
+For instance:
+
+camelCase("hello case"); // ==> "HelloCase"
+camelCase("camel case word"); // ==> "CamelCaseWord"
+
+// Solution 
+
+func camelCase(_ str: String) -> String {
+    let elements = str.split(separator: " ")
+    var camelCase = ""
+    
+    for index in 0..<elements.count {
+        camelCase += (elements[index].prefix(1).uppercased() + elements[index].dropFirst().lowercased())
+    }
+    
+    return camelCase
+}
